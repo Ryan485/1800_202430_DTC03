@@ -5,9 +5,9 @@ An interface to annotate LearningHub content. Allows the user to keep track of t
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Ryan
-* Peter
-* Richie
+* Ryan Song
+* Peter Beretanos
+* Richie Zhang
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
