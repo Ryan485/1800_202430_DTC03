@@ -30,9 +30,9 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* ...Time boxing feature to visualize due dates 
+* ...Estimated time for completetion of each assignment
+* ...Sorting assignments by due date and estamated time for completing
 	
 ## 7. Contents of Folder
 Content of the project folder:
