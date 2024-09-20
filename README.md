@@ -1,8 +1,7 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+An interface to annotate LearningHub content. Allows the user to keep track of the assignments or quizz, and gives an option to annotate on any text or figure on Learning hub if necessary.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
