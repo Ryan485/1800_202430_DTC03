@@ -1,7 +1,7 @@
 # Project Title
-
+Learning Hub Ideas
 ## 1. Project Description
-An interface to annotate LearningHub content. Allows the user to keep track of the assignments or quizz, and gives an option to annotate on any text or figure on Learning hub if necessary.
+An app that allows the user to keep track of the assignments or quizz, and gives an option to annotate on any text or figure on Learning hub if necessary.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
