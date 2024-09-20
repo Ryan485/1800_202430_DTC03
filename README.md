@@ -1,4 +1,4 @@
-# Project Title
+# COMP 1800 2024 DTC3
 
 ## 1. Project Description
 An interface to annotate LearningHub content. Allows the user to keep track of the assignments or quizz, and gives an option to annotate on any text or figure on Learning hub if necessary.
