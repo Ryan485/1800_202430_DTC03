@@ -1,4 +1,4 @@
-# Project Title
+# COMP 1800 2024 DTC3
 
 ## 1. Project Description
 An interface to annotate LearningHub content. Allows the user to keep track of the assignments or quizz, and gives an option to annotate on any text or figure on Learning hub if necessary.
@@ -30,9 +30,9 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* ...Time boxing feature to visualize due dates 
+* ...Estimated time for completetion of each assignment
+* ...Sorting assignments by due date and estamated time for completing
 	
 ## 7. Contents of Folder
 Content of the project folder:
