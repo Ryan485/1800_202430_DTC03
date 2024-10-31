@@ -1,17 +1,24 @@
 html {
     background-color: #F5F5F5 !important;
 }
+
 .welcome {
     background-color: #F5F5F5 !important;
     border: none !important;
     margin: 0 !important;
 }
+
 .call-to-action {
     display: block;
     margin-top: 75px;
 }
+
 .welcome-screenshot img {
     margin-top: 25px;
     width: 1200px;
     border: none !important;
+}
+
+footer {
+    max-width: 500px;
 }
