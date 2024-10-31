@@ -1,13 +1,15 @@
 <nav class="bg-navbar text-white flex flex-row justify-between">
     <div class="inline-flex">
-        <a href="#" class="p-3 text-2xl hover:bg-navbar-hover">DueHub</a>
-        <a href="#" class="p-3 pt-4 text-l hover:bg-navbar-hover">Assignments</a>
-        <a href="#" class="p-3 pt-4 text-l hover:bg-navbar-hover">Notifications</a>
-        <a href="#" class="p-3 pt-4 text-l hover:bg-navbar-hover">Discussions</a>
+        <a href="/" class="p-3 text-2xl hover:bg-navbar-hover">DueHub</a>
+        <a href="/assignments.html" class="p-3 pt-4 text-l hover:bg-navbar-hover">Assignments</a>
+        <a href="/notifications.html" class="p-3 pt-4 text-l hover:bg-navbar-hover">Notifications</a>
+        <a href="/discussion.html" class="p-3 pt-4 text-l hover:bg-navbar-hover">Discussions</a>
     </div>
     <div class="inline-flex float-right">
-        <a href="#" class="p-3 pt-4 text-l hover:bg-navbar-hover">Sign up</a>
-        <a href="#" class="p-3 pt-4 text-l hover:bg-navbar-hover">Log in</a>
-
+        <a href="/login.html" class="p-3 pt-4 text-l hover:bg-navbar-hover" id="login-button">Log in</a>
+        <p id="login-message" class="p-3 pt-4 text-l " style="display:none">Logged in as <span
+                id="login-username"></span></p>
+        <a href="javascript:logout()" class="p-3 pt-4 text-l hover:bg-navbar-hover" id="logout-button"
+            style="display:none">Log out</a>
     </div>
 </nav>

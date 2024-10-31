@@ -17,15 +17,16 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <!-- Other libraries go here -->
-    <script src="./scripts/firebaseAPI_DTC03.js"></script>
-    <script src="./scripts/authentication.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./scripts/firebaseAPI_DTC03.js"></script>
 
 
     <!-- Link to styles of your own -->
@@ -36,7 +37,10 @@
     <div class="rounded-circle overflow-hidden">
     </div>
     <h1>Welcome to Duehub</h1>
-    <a href="login.html" class="btn btn-warning" role="button">Log in</a>
+    <a href="login.html" class="btn btn-warning" role="button" id="login-button">Log in</a>
+    <p id="login-message" style="display:none">Logged in as <span id="login-username"></span></p>
+    <a href="javascript:logout()" class="btn btn-warning" role="button" id="logout-button" style="display:none">Log
+        out</a>
 </div>
 </div>
 
@@ -47,7 +51,7 @@
     <!-- Your HTML Layout go here -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">DueHub</a>
+            <a class="navbar-brand" href="/">DueHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,13 +59,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Assignments</a>
+                        <a class="nav-link active" aria-current="page" href="/assignments.html">Assignments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notifications</a>
+                        <a class="nav-link" href="/notifications.html">Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discussions</a>
+                        <a class="nav-link" href="/discussion.html">Discussions</a>
                     </li>
                 </ul>
             </div>
@@ -147,9 +151,7 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_DTC03.js"></script>
     <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/skeleton.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->

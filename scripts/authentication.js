@@ -17,7 +17,7 @@ var uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: 'index.html',
+    signInSuccessUrl: document.referrer,
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -37,3 +37,26 @@ console.log(uiConfig);
 ui.start('#firebaseui-auth-container', uiConfig);
 
 
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        console.log(user)
+        $("#login-button").hide()
+        $("#login-username").text(user.displayName)
+        $("#login-message").show()
+        $("#logout-button").show()
+    } else {
+        $("#login-button").show()
+        $("#login-username").text("")
+        $("#login-message").hide()
+        $("#logout-button").hide()
+    }
+})
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+    }).catch((error) => {
+        // An error happened.
+        console.error(error)
+    })
+}
