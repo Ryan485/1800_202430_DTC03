@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Firebase Utils - DueHub</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="/static/tailwind-3.4.5.js"></script>
+    <script src="/static/jquery-3.7.1.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="/authentication/firebaseAPI_DTC03.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="/styles/style.css" />
+
+</head>
+
+<body class="container mx-auto p-5">
+    <h1 class="font-bold mb-2">WARNING: THIS PAGE MODIFIES THE DATABASE! DON'T PRESS ANY BUTTONS UNLESS YOU KNOW WHAT
+        YOU'RE DOING!</h1>
+
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockData()">Generate
+        Mock Data</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="deleteMockData()">Delete Mock
+        Data</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="resetMockData()">Reset Mock
+        Data</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="updateDueDates()">Update Due
+        Dates</button>
+
+    <h1 class="font-bold mt-5 mb-2">Log <button
+            class="bg-navbar-hover hover:bg-navbar text-white py-[1.5px] px-[3px] text-xs rounded mx-2"
+            onclick="clearLog()">Clear</button></h1>
+    <div id="log" class="font-mono"></div>
+
+    <script src="/scripts/tailwind.config.js"></script>
+    <script>
+        function restoreLog() {
+            $("#log").html(localStorage.getItem("log"))
+        }
+        restoreLog()
+
+        function log(data, json = false) {
+            var time = new Date();
+            console.log(data, time)
+            var html = `<p>[${time.toLocaleString()}] ${json ? JSON.stringify(data) : data}</p>`
+            $("#log").prepend(html)
+            localStorage.setItem("log", html + localStorage.getItem("log"))
+        }
+
+        function clearLog() {
+            $("#log").empty()
+            localStorage.setItem("log", "")
+            console.log("Log cleared")
+        }
+
+        function generateMockData() {
+            log("Generate Mock Data")
+        }
+
+        function deleteMockData() {
+            log("Delete Mock Data")
+        }
+
+        function resetMockData() {
+            deleteMockData()
+            generateMockData()
+        }
+
+        function updateDueDates() {
+            log("Reset Due Dates")
+        }
+    </script>
+</body>
+
+</html>
