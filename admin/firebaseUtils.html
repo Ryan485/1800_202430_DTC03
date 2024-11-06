@@ -46,25 +46,9 @@
     <div id="log" class="font-mono"></div>
 
     <script src="/scripts/tailwind.config.js"></script>
+    <script src="/scripts/script.js"></script>
     <script>
-        function restoreLog() {
-            $("#log").html(localStorage.getItem("log"))
-        }
         restoreLog()
-
-        function log(data, json = false) {
-            var time = new Date();
-            console.log(data, time)
-            var html = `<p>[${time.toLocaleString()}] ${json ? JSON.stringify(data) : data}</p>`
-            $("#log").prepend(html)
-            localStorage.setItem("log", html + localStorage.getItem("log"))
-        }
-
-        function clearLog() {
-            $("#log").empty()
-            localStorage.setItem("log", "")
-            console.log("Log cleared")
-        }
 
         function generateMockData() {
             log("Generate Mock Data")
