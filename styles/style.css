@@ -22,3 +22,7 @@ html {
 footer {
     max-width: 500px;
 }
+
+#log p {
+    margin-bottom: 25px;
+}

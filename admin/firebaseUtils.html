@@ -47,15 +47,29 @@
 
     <script src="/scripts/tailwind.config.js"></script>
     <script src="/scripts/script.js"></script>
+    <script src="/admin/mockData.js"></script>
     <script>
         restoreLog()
 
+        const assignmentsRef = db.collection("assignments");
+
         function generateMockData() {
             log("Generate Mock Data")
+            assignments.forEach(assignment => {
+                assignmentsRef.add(assignment)
+                    .then(output => log("Added assignment", output))
+            })
         }
 
         function deleteMockData() {
             log("Delete Mock Data")
+            assignmentsRef.get().then(assignmentDocs => {
+                assignmentDocs.forEach(assignment => {
+                    console.log(assignment)
+                    assignmentsRef.doc(assignment.id).delete()
+                        .then(log("Deleted assignment " + assignment.id))
+                })
+            })
         }
 
         function resetMockData() {

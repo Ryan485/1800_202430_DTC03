@@ -13,10 +13,15 @@ function restoreLog() {
     $("#log").html(localStorage.getItem("log"))
 }
 
-function log(data, json = false) {
+function log(text, json = null) {
     var time = new Date();
-    console.log(data, time)
-    var html = `<p>[${time.toLocaleString()} ${window.location.pathname}] ${json ? JSON.stringify(data) : data}</p>`
+    console.log(text, json, time)
+
+    if (json) {
+        text += ` <code>${JSON.stringify(json)}</code>`
+    }
+
+    var html = `<p>[${time.toLocaleString()} ${window.location.pathname}] ${text}</p>`
     $("#log").prepend(html)
     localStorage.setItem("log", html + localStorage.getItem("log"))
 }
