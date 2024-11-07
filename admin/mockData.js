@@ -77,4 +77,13 @@ var assignments = [
         new: false,
         progress: 0
     },
+    {
+        course: "COMP 1116",
+        name: "Presentation",
+        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem error alias illo dolore, vitae dolorum molestias aliquam in. Cupiditate maiores ut explicabo animi totam vel illum maxime quia harum consequuntur. Architecto totam impedit voluptas hic obcaecati debitis quidem ducimus, vero, necessitatibus iure ipsa, quo temporibus dignissimos est tenetur animi voluptatum?",
+        estimatedTimeInMinutes: 80,
+        dueDate: daysAwayFromToday(3),
+        new: false,
+        progress: 0
+    },
 ]
