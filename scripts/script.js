@@ -31,3 +31,30 @@ function clearLog() {
     localStorage.setItem("log", "")
     console.log("Log cleared")
 }
+
+function daysFromToday(date) {
+    return Math.floor((date - new Date()) / (1000 * 60 * 60 * 24))
+}
+
+function dayOfWeekFromToday(days) {
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    return daysOfWeek[(new Date().getDay() + days) % 7]
+}
+
+function plural(number) {
+    return number == 1 ? "" : "s"
+}
+
+function estimatedTimeString(minutes) {
+    if (minutes < 60) {
+        return `${minutes} min${plural(minutes)}`
+    } else {
+        var hours = Math.floor(minutes / 60)
+        var remainingMinutes = minutes % 60
+        if (remainingMinutes) {
+            return `${hours} hr${plural(hours)} ${remainingMinutes} min${plural(remainingMinutes)}`
+        } else {
+            return `${hours} hr${plural(hours)}`
+        }
+    }
+}

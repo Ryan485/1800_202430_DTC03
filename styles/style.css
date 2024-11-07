@@ -26,3 +26,7 @@ footer {
 #log p {
     margin-bottom: 25px;
 }
+
+.assignment-estimated-time::before {
+    content: "~";
+}

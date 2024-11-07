@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DueHub</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="static/tailwind-3.4.5.js"></script>
+    <script src="static/jquery-3.7.1.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./authentication/firebaseAPI_DTC03.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+</head>
+
+
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+
+    <div id="navbar"></div>
+
+    <main class="container mx-auto px-3">
+        <nav class="text-center text-[30px]">
+            <p><b>Assignment</b></p>
+            <hr>
+        </nav>
+
+        <div class="flex justify-between">
+            <div class="py-5">
+                <p class="assignment-course">assignment-course</p>
+            </div>
+            <div class="py-5">
+                <p class="assignment-estimated-time">assignment-estimated-time</p>
+            </div>
+        </div>
+
+
+        <div class="text-[35px]">
+            <p class="assignment-name font-bold">assignment-name</p>
+        </div>
+
+        <div>
+            <p>Due <span class="assignment-due-date">assignment-due-date</span></p>
+        </div>
+
+        <div class="bg-progress-not-done">
+            <!-- <img width="380" src="dfjksadljfsdfs.png" alt=""> -->
+            <div class="h-3 bg-progress-done assignment-progress-bar"></div>
+        </div>
+
+        <div class="text-center md:float-start text-[#acacad]">
+            <p><span class="assignment-progress-percent">0</span>% Completed</p>
+        </div>
+
+        <div class="my-6 pt-5">
+            <p class="assignment-description">assignment-description</p>
+        </div>
+
+        <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-3">
+            <a class="px-3" href="#">Priority</a>
+        </div>
+        <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-3">
+            <a class="px-3" href="#">Completetion</a>
+        </div>
+
+        <div class="pt-20">
+            <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-5 text-center">
+                <a class="text-[20px]" href="#">View Comments</a>
+            </div>
+        </div>
+        <!-- <form>
+        <div class="mb-4">
+            <label for="purpose" class="block text-sm font-medium">Purpose</label>
+            <select id="purpose" class="mt-1 block w-full p-2 border rounded-md">
+                <option>Low</option>
+                <option>Meduim</option>
+                <option>High</option>
+            </select>
+        </div>
+    </form> -->
+
+    </main>
+
+    <div id="footer"></div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/tailwind.config.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/assignment.js"></script>
+</body>
+
+</html>
