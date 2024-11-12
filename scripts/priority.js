@@ -10,8 +10,17 @@ assignmentsRef.doc(docID).get()
         console.log(doc)
         if (doc.exists) {
             // Extract the course information from the document
-            let course = doc.data().course;
-            console.log(course);  // Logs the course name (e.g., "COMP 1116")
+            $(".assignment-course").text(doc.data().course)
+            $(".assignment-estimated-time").text(estimatedTimeString(doc.data().estimatedTimeInMinutes))
+            $(".assignment-name").text(doc.data().name)
+
+            var dueDate = new Date(doc.data().dueDate)
+            var dueInDays = daysFromToday(dueDate)
+            console.log(dueDate, dueInDays)
+
+            $(".assignment-due-date").text(`${dayOfWeekFromToday(dueInDays)} ${dueDate.toLocaleDateString()} (in ${dueInDays} day${plural(dueInDays)})`)
+            $(".assignment-progress-bar").css("width", doc.data().progress + "%")
+            $(".assignment-progress-percent").text(doc.data().progress)
         } else {
             console.log("No document found with the given docID");
         }

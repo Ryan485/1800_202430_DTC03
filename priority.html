@@ -21,7 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="./scripts/firebaseAPI_DTC03.js"></script>
+    <script src="./authentication/firebaseAPI_DTC03.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,18 +46,18 @@
         </nav>
         <div class="mt-6">
             <div class="flex justify-between w-3/5 mx-auto mt-3">
-                <p>COMP 1510</p>
-                <p>~1hr</p>
+                <p class="assignment-course">assignment-course</p>
+                <p class="assignment-estimated-time">assignment-estimated-time</p>
             </div>
             <div class="flex w-3/5 mx-auto font-bold" style="font-size: 30px;">
-                <h1>Lab 5 - Unit Tests</h1>
+                <h1 class="assignment-name">assignment-name</h1>
             </div>
             <div class="flex w-3/5 mx-auto">
-                <p class="mb-2">Due Tuesday, October 15 (2 days)</p>
+                <p class="assignment-due-date mb-2">Due Tuesday, October 15 (2 days)</p>
             </div>
             <div class="flex w-3/5 bg-gray-200 rounded-full h-1 dark:bg-gray-700 mx-auto">
-                <div class="w-full bg-gray-600 h-1 rounded-full" style="width: 45%"></div>
-                <p class="text-gray-600 mt-2">40% completed</p>
+                <div class="assignment-progress-bar w-full bg-gray-600 h-1 rounded-full" style="width: 45%">assignment-progress-bar</div>
+                <p class="assignment-progress-percent text-gray-600 mt-2"></p>
             </div>
             <div class="bg-gray-300 mt-12 flex w-3/5 mx-auto flex-col h-96 rounded-lg border-2 border-slate-700">
                 <div class="text-center">
