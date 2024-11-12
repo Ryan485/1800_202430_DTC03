@@ -12,6 +12,7 @@
     <!-- Other libraries go here -->
     <script src="static/tailwind-3.4.5.js"></script>
     <script src="static/jquery-3.7.1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -60,32 +61,34 @@
             <p>Due <span class="assignment-due-date">assignment-due-date</span></p>
         </div>
 
-        <div class="bg-progress-not-done">
-            <!-- <img width="380" src="dfjksadljfsdfs.png" alt=""> -->
-            <div class="h-3 bg-progress-done assignment-progress-bar"></div>
-        </div>
+        <hr class="mt-3 mb-5" />
 
-        <div class="text-center md:float-start text-[#acacad]">
-            <p><span class="assignment-progress-percent">0</span>% Completed</p>
-        </div>
-
-        <div class="my-6 pt-5">
-            <p class="assignment-description">assignment-description</p>
-        </div>
-
-        <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-3">
-            <a class="px-3" href="#">Priority</a>
-        </div>
-        <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-3">
-            <a class="px-3" href="#">Completetion</a>
-        </div>
-
-        <div class="pt-20">
-            <a class="assignment-comments-link" href="#">
-                <div class="rounded border-solid border-2 border-black bg-[#d9d9d9] my-5 py-5 text-center">
-                    <span class="text-[20px]">View Comments</span>
+        <div class="pl-[0px] mb-2">
+            <img src="/images/user.png" class="w-[50px] inline-block align-top"
+                title="Icon by Bingge Liu on Flaticon" />
+            <div class="inline-block bg-assignment w-[90%] ml-3 p-2">
+                <p class="text-xs comment-name font-bold text-navbar-hover">comment-name</p>
+                <p class="comment-text">comment-text</p>
+                <div class="align-top relative">
+                    <span class="pt-3"><i class="material-icons clickable">arrow_upward</i></span>
+                    <span class="text-bold comment-score absolute mt-3">1</span>
+                    <span><i class="material-icons clickable pt-3 pl-3">arrow_downward</i></span>
                 </div>
-            </a>
+            </div>
+        </div>
+
+        <div class="pl-[65px]">
+            <img src="/images/user.png" class="w-[50px] inline-block align-top"
+                title="Icon by Bingge Liu on Flaticon" />
+            <div class="inline-block bg-assignment w-[90%] ml-3 p-2">
+                <p class="text-xs comment-name font-bold text-navbar-hover">comment-name</p>
+                <p class="comment-text">comment-text</p>
+                <div class="align-top relative">
+                    <span class="pt-3"><i class="material-icons clickable">arrow_upward</i></span>
+                    <span class="text-bold comment-score absolute mt-3">1</span>
+                    <span><i class="material-icons clickable pt-3 pl-3">arrow_downward</i></span>
+                </div>
+            </div>
         </div>
 
         <!-- <form>
