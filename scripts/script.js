@@ -38,7 +38,7 @@ function daysFromToday(date) {
 
 function dayOfWeekFromToday(days) {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    return daysOfWeek[(new Date().getDay() + days) % 7]
+    return daysOfWeek[Math.abs(new Date().getDay() + days) % 7]
 }
 
 function plural(number) {
