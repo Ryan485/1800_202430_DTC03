@@ -107,6 +107,7 @@ function displayAssignments(data) {
             assignment.querySelector('.assignment-name').innerText = item.name
             assignment.querySelector('.assignment-progress').style["width"] = item.progress + "%"
             assignment.querySelector('.assignment-link').href = `/assignment.html?docID=${item.id}`
+            assignment.querySelector('.assignment-link').id = item.id
             if (item.new) {
                 assignment.querySelector('.assignment-new').innerText = "NEW"
                 assignment.querySelector('.assignment-name').classList.add("font-bold")

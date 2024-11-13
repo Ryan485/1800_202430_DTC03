@@ -12,7 +12,6 @@
     <!-- Other libraries go here -->
     <script src="static/tailwind-3.4.5.js"></script>
     <script src="static/jquery-3.7.1.js"></script>
-    <script src="./authentication/firebaseAPI_DTC03.js"></script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -41,50 +40,23 @@
         <nav class="flex justify-center p-1 font-bold border-b-2 border-slate-300" style="font-size: 30px;">
             <h1>Discussions</h1>
         </nav>
-        <a href="">
-            <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
-                <div class="flex justify-between ml-2 mr-2">
-                    <p>COMP 1800 - Discussion</p>
-                    <p>~30 mins</p>
+
+        <template id="discussionTemplate">
+            <a class="discussion-thread-link" href="#">
+                <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
+                    <div class="flex justify-between ml-2 mr-2">
+                        <p class="assignment-course">COMP 1800 - Discussion</p>
+                        <p class="assignment-estimated-time">~30 mins</p>
+                    </div>
+                    <div class="ml-1">
+                        <p class="ml-1 assignment-name" style="font-size: 25px;">Week 3 Quiz - Wireframes</p>
+                    </div>
                 </div>
-                <div class="ml-1">
-                    <p class="ml-1" style="font-size: 25px;">Week 3 Quiz - Wireframes</p>
-                </div>
-            </div>
-        </a>
-        <a href="">
-            <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
-                <div class="flex justify-between ml-2 mr-2">
-                    <p>COMP 1510 - Discussion</p>
-                    <p>~2 hrs</p>
-                </div>
-                <div class="ml-1">
-                    <p class="ml-1" style="font-size: 25px;">Lab 5 - Unit Tests</p>
-                </div>
-            </div>
-        </a>
-        <a href="">
-            <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
-                <div class="flex justify-between ml-2 mr-2">
-                    <p>COMP 1537 - Discussion</p>
-                    <p>~2 hrs</p>
-                </div>
-                <div class="ml-1">
-                    <p class="ml-1" style="font-size: 25px;">Lab 3 Quiz - Tailwind CSS</p>
-                </div>
-            </div>
-        </a>
-        <a href="">
-            <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
-                <div class="flex justify-between ml-2 mr-2">
-                    <p>COMP 1712 - Discussion</p>
-                    <p>~1 hr</p>
-                </div>
-                <div class="ml-1">
-                    <p class="ml-1" style="font-size: 25px;">Lab 5 - Requirments</p>
-                </div>
-            </div>
-        </a>
+            </a>
+        </template>
+
+        <div id="discussions"></div>
+
 
     </main>
 
@@ -97,6 +69,6 @@
     <script src="./scripts/tailwind.config.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
-
+    <script src="./scripts/discussion.js"></script>
 
 </body>
