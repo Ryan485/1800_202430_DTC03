@@ -34,6 +34,5 @@ var header = headerTemplate.content.cloneNode(true)
 
 header.querySelector('.due-day').innerText = group.dueDay
 header.querySelector('.due-in-days-number').innerText = group.dueInDays
-=======
 var header = headerTemplate.content.cloneNode(true)
 >>>>>>> 11c785e730d809fbe702625ea01dc4c37c882654

@@ -21,7 +21,6 @@ function getAssignment() {
 <<<<<<< HEAD
 =======
             $(".assignment-comments-link").attr("href", "comments.html?docID=" + doc.id)
->>>>>>> 11c785e730d809fbe702625ea01dc4c37c882654
 
             $(".assignment-priority").attr("href", "/priority.html?docID=" + docID)
         })
