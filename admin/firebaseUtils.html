@@ -39,6 +39,8 @@
         Data</button>
     <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="updateDueDates()">Update Due
         Dates</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3"
+        onclick="addCurrentUserToCollection()">Add Current User to Collection</button>
 
     <h1 class="font-bold mt-5 mb-2">Log <button
             class="bg-navbar-hover hover:bg-navbar text-white py-[1.5px] px-[3px] text-xs rounded mx-2"
@@ -47,6 +49,7 @@
 
     <script src="/scripts/tailwind.config.js"></script>
     <script src="/scripts/script.js"></script>
+    <script src="/scripts/authentication.js"></script>
     <script src="/admin/mockData.js"></script>
     <script>
         restoreLog()
@@ -79,6 +82,17 @@
 
         function updateDueDates() {
             log("Reset Due Dates")
+        }
+
+        function addCurrentUserToCollection() {
+            db.collection("users").doc(loggedInUser.uid).set({
+                name: loggedInUser.displayName,
+                email: loggedInUser.email,
+            }).then(function () {
+                log("New user added to firestore", JSON.stringify(loggedInUser));
+            }).catch(function (error) {
+                log("Error adding new user", JSON.stringify(error));
+            });
         }
     </script>
 </body>

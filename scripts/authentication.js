@@ -4,10 +4,21 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
+            var user = authResult.user;
+            if (authResult.additionalUserInfo.isNewUser) {
+                db.collection("users").doc(user.uid).set({
+                    name: user.displayName,
+                    email: user.email,
+                }).then(function () {
+                    console.log("New user added to firestore");
+                    window.location.assign(document.referrer);
+                }).catch(function (error) {
+                    console.error("Error adding new user: " + error);
+                });
+            } else {
+                return true;
+            }
+            return false;
         },
         uiShown: function () {
             // The widget is rendered.
@@ -36,19 +47,30 @@ var uiConfig = {
 console.log(uiConfig);
 ui.start('#firebaseui-auth-container', uiConfig);
 
+var loggedInUser
 
 firebase.auth().onAuthStateChanged(user => {
+    console.log("Logged in user:", user)
+    loggedInUser = user
+
     if (user) {
-        console.log(user)
         $("#login-button").hide()
         $("#login-username").text(user.displayName)
+        $(".login-username").text(user.displayName)
         $("#login-message").show()
         $("#logout-button").show()
+
+        $(".show-if-logged-in").show()
+        $(".hide-if-logged-in").hide()
     } else {
         $("#login-button").show()
         $("#login-username").text("")
+        $(".login-username").text("")
         $("#login-message").hide()
         $("#logout-button").hide()
+
+        $(".show-if-logged-in").hide()
+        $(".hide-if-logged-in").show()
     }
 })
 

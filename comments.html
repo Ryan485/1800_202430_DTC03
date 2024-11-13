@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DueHub</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="static/tailwind-3.4.5.js"></script>
+    <script src="static/jquery-3.7.1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./authentication/firebaseAPI_DTC03.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+</head>
+
+
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+
+    <div id="navbar"></div>
+
+    <main class="container mx-auto px-3">
+        <nav class="text-center text-[30px]">
+            <p><b>Comments</b></p>
+            <hr>
+        </nav>
+
+        <div class="flex justify-between">
+            <div class="py-5">
+                <p class="assignment-course">assignment-course</p>
+            </div>
+            <div class="py-5">
+                <p class="assignment-estimated-time">assignment-estimated-time</p>
+            </div>
+        </div>
+
+
+        <div class="text-[35px]">
+            <p class="assignment-name font-bold">assignment-name</p>
+        </div>
+
+        <div>
+            <p>Due <span class="assignment-due-date">assignment-due-date</span></p>
+        </div>
+
+        <hr class="mt-3 mb-5" />
+
+        <form class="mb-5 comment-form show-if-logged-in" style="display:none">
+            <label for="comment" class="block text-navbar-hover">Add a comment as <span
+                    class="login-username"></span></label>
+            <textarea class="w-full h-20 mb-2 block" id="comment-textarea"></textarea>
+            <button class="bg-navbar hover:bg-navbar-hover text-white p-2 rounded" type="button"
+                onclick="addComment()">Submit</button>
+            <span class="comment-status pl-3"></span>
+        </form>
+        <p class="mb-5 not-logged-in-message hide-if-logged-in">Sign in to add a comment.</p>
+
+        <div id="comments"></div>
+
+        <template id="commentTemplate">
+            <div class="pl-[0px] mb-2 comment">
+                <img src="/images/user.png" class="w-[50px] inline-block align-top"
+                    title="Icon by Bingge Liu on Flaticon" />
+                <div class="inline-block bg-assignment w-[90%] ml-3 p-2">
+                    <p class="text-xs text-navbar-hover"><span class="comment-user font-bold">comment-user</span> posted
+                        on <span class="comment-timestamp">comment-timestamp</span></p>
+                    <p class="comment-content">comment-content</p>
+                    <div class="align-top relative">
+                        <span class="pt-3"><i class="material-icons clickable">arrow_upward</i></span>
+                        <span class="text-bold comment-score absolute mt-3">1</span>
+                        <span><i class="material-icons clickable pt-3 pl-3">arrow_downward</i></span>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!--
+        <div class="pl-[65px]">
+            <img src="/images/user.png" class="w-[50px] inline-block align-top"
+                title="Icon by Bingge Liu on Flaticon" />
+            <div class="inline-block bg-assignment w-[90%] ml-3 p-2">
+                <p class="text-xs comment-name font-bold text-navbar-hover">comment-name</p>
+                <p class="comment-text">comment-text</p>
+                <div class="align-top relative">
+                    <span class="pt-3"><i class="material-icons clickable">arrow_upward</i></span>
+                    <span class="text-bold comment-score absolute mt-3">1</span>
+                    <span><i class="material-icons clickable pt-3 pl-3">arrow_downward</i></span>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- <form>
+        <div class="mb-4">
+            <label for="purpose" class="block text-sm font-medium">Purpose</label>
+            <select id="purpose" class="mt-1 block w-full p-2 border rounded-md">
+                <option>Low</option>
+                <option>Meduim</option>
+                <option>High</option>
+            </select>
+        </div>
+    </form> -->
+
+    </main>
+
+    <div id="footer"></div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/tailwind.config.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/assignment.js"></script>
+    <script src="./scripts/comments.js"></script>
+</body>
+
+</html>

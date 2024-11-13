@@ -18,8 +18,6 @@ function getAssignment() {
 
             $(".assignment-progress-bar").css("width", assignment.progress + "%")
             $(".assignment-progress-percent").text(assignment.progress)
-
-            $(".assignment-priority").attr("href", "/priority.html?docID=" + docID)
         })
 }
 getAssignment()
