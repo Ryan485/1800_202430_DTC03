@@ -28,3 +28,8 @@ assignmentsRef.doc(docID).get()
     .catch(error => {
         console.error("Error fetching document:", error);
     });
+
+var header = headerTemplate.content.cloneNode(true)
+
+header.querySelector('.due-day').innerText = group.dueDay
+header.querySelector('.due-in-days-number').innerText = group.dueInDays
