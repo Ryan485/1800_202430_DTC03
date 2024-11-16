@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DueHub</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="static/tailwind-3.4.5.js"></script>
+    <script src="static/jquery-3.7.1.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+</head>
+
+
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+
+    <div id="navbar"></div>
+
+    <main>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Notifications</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+
+        <body>
+
+            <nav class="text-center text-[30px]">
+                <p><b>Notifications</b></p>
+                <hr>
+            </nav>
+
+            <main id="main">
+
+            </main>
+
+            <template id="notificationsCardTemplate">
+                <div class="bg-[#d9d9d9] border-2 border-black m-5" onclick="notificationClicked()">
+                    <div>
+                        <p class="notifications.course pl-2">Course <src class="notifications.new">New?</src>
+                        </p>
+
+                        <p class="notifications.estimatedTime">Estimated time?</p>
+                    </div>
+                    <p class="notifications.mainNotifications text-[25px] pl-2"><b>Description</b></p>
+                </div>
+            </template>
+        </body>
+
+        </html>
+    </main>
+
+    <div id="footer"></div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/tailwind.config.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/notifications.js"></script>
+
+</body>
+
+</html>

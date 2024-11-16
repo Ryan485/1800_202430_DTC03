@@ -86,4 +86,82 @@ var assignments = [
         new: false,
         progress: 0
     },
+    {
+        course: "COMP 1800",
+        name: "Presentation",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis libero minus omnis explicabo sapiente praesentium consectetur, necessitatibus quia aspernatur voluptas? Facere, cupiditate in voluptates unde harum eos quod odit doloremque.",
+        estimatedTimeInMinutes: 60,
+        dueDate: daysAwayFromToday(3),
+        new: false,
+        progress: 0
+
+    }
+
+]
+
+
+var notifications = [
+    {
+        notified: '2 days ago',
+        items: [
+            {
+                course: "COMP 1510: Lab 4 - Discussion Post",
+                mainNotifications: "@chrisp23 Mentioned You",
+                estimatedTime: "",
+                new: false,
+            },
+            {
+                course: "COMP 1510",
+                mainNotifications: "Lab 5 - Unit Testing",
+                estimatedTime: "~2 hr",
+                new: true,
+            },
+        ]
+    },
+    {
+        notified: Yesterday,
+        items: [
+            {
+                course: "COMP 1712: Agile - Discussion Post",
+                mainNotifications: "@doug31 Mentioned You",
+                estimatedTime: "",
+                new: false,
+            },
+            {
+                course: "COMP 1537",
+                mainNotifications: "Lab 5 - JavaScript Basics",
+                estimatedTime: "~1 hr 20 mins",
+                new: true,
+            },
+            {
+                course: "COMP 1510: Lab 4 - Discussion Post",
+                mainNotifications: "@melissawo Mentioned You",
+                estimatedTime: "",
+                new: false,
+            },
+        ]
+    },
+    {
+        notified: "today",
+        items: [
+            {
+                course: "COMP 1113: Integers - Discussion Post",
+                mainNotifications: "@johng Mentioned You",
+                estimatedTime: "",
+                new: false,
+            },
+            {
+                course: "COMP 1100: Project 1 - Discussion Post",
+                mainNotifications: "@jerryjoe Mentioned You",
+                estimatedTime: "",
+                new: false,
+            },
+            {
+                course: "Comp 1800",
+                mainNotifications: "Week 3 Quiz - Wireframes",
+                estimatedTime: "~2 hr 45 mins",
+                new: true,
+            },
+        ]
+    },
 ]
