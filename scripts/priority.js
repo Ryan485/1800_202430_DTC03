@@ -30,3 +30,7 @@ assignmentsRef.doc(docID).get()
     });
 
 var header = headerTemplate.content.cloneNode(true)
+
+header.querySelector('.due-day').innerText = group.dueDay
+header.querySelector('.due-in-days-number').innerText = group.dueInDays
+var header = headerTemplate.content.cloneNode(true)
