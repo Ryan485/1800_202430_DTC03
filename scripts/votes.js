@@ -90,6 +90,11 @@ async function vote(isUpvote, commentID, newComment = false) {
                         $("#comment-score-" + commentID).text(parseInt($("#comment-score-" + commentID).text()) + 1)
                     }
                 } else {
+                    if (isUpvote) {
+                        $("#comment-score-" + commentID).text(parseInt($("#comment-score-" + commentID).text()) + 1)
+                    } else {
+                        $("#comment-score-" + commentID).text(parseInt($("#comment-score-" + commentID).text()) - 1)
+                    }
                     submitVote(newVote, commentID, newComment)
                 }
             })
