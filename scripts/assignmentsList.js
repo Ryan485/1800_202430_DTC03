@@ -111,6 +111,7 @@ function displayAssignments(data) {
             if (item.new) {
                 assignment.querySelector('.assignment-new').innerText = "NEW"
                 assignment.querySelector('.assignment-name').classList.add("font-bold")
+                assignment.querySelector('.bg-assignment').classList.add("bg-assignment-new")
             }
 
             assignmentList.appendChild(assignment)
