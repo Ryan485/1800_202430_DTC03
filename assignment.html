@@ -117,11 +117,13 @@
                         on <span class="comment-timestamp">comment-timestamp</span></p>
                     <p class="comment-content">comment-content</p>
                     <div class="align-top relative">
-                        <span class="pt-3"><i class="material-icons clickable">arrow_upward</i></span>
-                        <span class="text-bold comment-score absolute mt-3">1</span>
-                        <span><i class="material-icons clickable pt-3 pl-3">arrow_downward</i></span>
+                        <span class="pt-3"><i
+                                class="material-icons clickable hover:text-gray-500 comment-upvote">arrow_upward</i></span>
+                        <span class="text-bold comment-score absolute mt-3">0</span>
+                        <span><i
+                                class="material-icons clickable pt-3 pl-3 hover:text-gray-500 comment-downvote">arrow_downward</i></span>
                         <span class="float-right pt-3"><i
-                                class="material-icons clickable comment-reply">reply</i></span>
+                                class="material-icons clickable hover:text-gray-500 comment-reply">reply</i></span>
                     </div>
                     <div class="comment-reply-form"></div>
                 </div>
@@ -153,6 +155,7 @@
     <script src="./scripts/script.js"></script>
     <script src="/scripts/authentication.js"></script>
     <script src="./scripts/assignment.js"></script>
+    <script src="./scripts/votes.js"></script>
     <script src="./scripts/comments.js"></script>
 </body>
 

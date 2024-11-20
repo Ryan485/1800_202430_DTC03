@@ -1,9 +1,13 @@
 const assignmentID = new URL(window.location.href).searchParams.get("docID");
 const commentsRef = db.collection("comments")
+const votesRef = db.collection("votes")
 const usersRef = db.collection("users")
 const commentTemplate = document.getElementById("commentTemplate")
 const commentList = document.getElementById("comments")
 var commentData = []
+
+const UPVOTE_COLOR = "text-blue-500"
+const DOWNVOTE_COLOR = "text-red-500"
 
 function commentStatusMessage(message, id) {
     $("#" + id).text(message)
@@ -19,10 +23,18 @@ async function displayComment(id, comment) {
     newComment.id = id
     newComment.querySelector(".comment-content").innerText = comment.content
     newComment.querySelector(".comment-timestamp").innerText = comment.timestamp.toDate()
+
     newComment.querySelector(".comment-reply").onclick = function () { reply(id) }
     newComment.querySelector(".comment-reply-form").id = "comment-reply-form-" + id
     newComment.querySelector(".comment-replies").id = "comment-replies-" + id
     console.log(newComment.querySelector(".comment-replies").id)
+
+    newComment.querySelector(".comment-score").id = "comment-score-" + id
+    newComment.querySelector(".comment-upvote").id = "comment-upvote-" + id
+    newComment.querySelector(".comment-upvote").onclick = function () { vote(true, id) }
+    newComment.querySelector(".comment-downvote").id = "comment-downvote-" + id
+    newComment.querySelector(".comment-downvote").onclick = function () { vote(false, id) }
+
 
     if (comment.replyTo) {
         console.log("Reply", "comment-replies-" + comment.replyTo, id, comment)
@@ -42,11 +54,12 @@ function getComments() {
             comments.docs.forEach(doc => {
                 displayComment(doc.id, doc.data())
             })
+            getVotes()
         })
 }
 getComments()
 
-function addComment(replyTo="") {
+function addComment(replyTo = "") {
     const statusElementId = function (id) {
         console.log("replyTo:", id)
         if (id) {
@@ -95,6 +108,8 @@ function addComment(replyTo="") {
             commentStatusMessage("Comment added successfully.", statusElementId)
             log(`Comment added successfully with ID ${result.id}`, result)
             $("#" + commentTextId).val("")
+            log("New comment:", comment)
+            vote(true, result.id, true)
             getComments()
         })
         .catch(error => {
