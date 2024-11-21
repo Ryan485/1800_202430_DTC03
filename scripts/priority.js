@@ -3,6 +3,9 @@ let docID = new URL(window.location.href).searchParams.get("docID");
 
 // Reference to the Firestore collection
 const assignmentsRef = db.collection("assignments");
+const dropdownButton = document.getElementById('dropdownButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const selectedOption = document.getElementById('selectedOption');
 
 // Fetch the document based on the docID
 assignmentsRef.doc(docID).get()
@@ -28,6 +31,31 @@ assignmentsRef.doc(docID).get()
     .catch(error => {
         console.error("Error fetching document:", error);
     });
+
+
+// Toggle dropdown menu visibility
+dropdownButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+});
+
+// Handle option selection
+dropdownMenu.addEventListener('click', (event) => {
+    const target = event.target.closest('.priority-option');
+    if (target) {
+        const priority = target.getAttribute('data-priority');
+        selectedOption.textContent = priority; // Update button text
+        dropdownMenu.classList.add('hidden'); // Hide dropdown after selection
+    }
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (event) => {
+    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add('hidden');
+    }
+});
+
+
 
 function commentLinkClicked() {
     window.location.href = "./comments.html?docID=" + docID

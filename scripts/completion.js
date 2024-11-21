@@ -3,6 +3,14 @@ let docID = new URL(window.location.href).searchParams.get("docID");
 
 // Reference to the Firestore collection
 const assignmentsRef = db.collection("assignments");
+const slider = document.getElementById('slider');
+const progressBar = document.getElementById('progress-bar');
+const percentageDisplay = document.getElementById('percentage');
+
+
+
+// Initialize the progress bar on page load
+initializeProgressBar();
 
 // Fetch the document based on the docID
 assignmentsRef.doc(docID).get()
@@ -28,6 +36,22 @@ assignmentsRef.doc(docID).get()
     .catch(error => {
         console.error("Error fetching document:", error);
     });
+
+
+slider.addEventListener('input', function () {
+    const value = slider.value; // Get slider's value
+    progressBar.style.width = `${value}%`; // Adjust the width of the progress bar
+    percentageDisplay.textContent = value; // Update percentage text
+});
+
+
+// Function to initialize progress bar and percentage
+function initializeProgressBar() {
+    const initialValue = slider.value; // Get slider's initial value
+    progressBar.style.width = `${initialValue}%`; // Set progress bar width
+    percentageDisplay.textContent = initialValue; // Set initial percentage text
+}
+
 
 function commentLinkClicked() {
     window.location.href = "./comments.html?docID=" + docID
