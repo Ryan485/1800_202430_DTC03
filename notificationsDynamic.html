@@ -13,6 +13,15 @@
     <script src="static/tailwind-3.4.5.js"></script>
     <script src="static/jquery-3.7.1.js"></script>
 
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="./authentication/firebaseAPI_DTC03.js"></script>
+
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css" />
 
@@ -50,15 +59,15 @@
             </main>
 
             <template id="notificationsCardTemplate">
+                <a class="notifications-link" href="">
                 <div class="bg-[#d9d9d9] border-2 border-black m-5" onclick="notificationClicked()">
                     <div>
-                        <p class="notifications.course pl-2">Course <src class="notifications.new">New?</src>
-                        </p>
-
-                        <p class="notifications.estimatedTime">Estimated time?</p>
+                        <p class="notifications-course pl-2">Course</p>
+                        <p class="notifications-estimatedTime float-right">Estimated time?</p>
                     </div>
-                    <p class="notifications.mainNotifications text-[25px] pl-2"><b>Description</b></p>
+                    <p class="notifications-mainNotifications text-[25px] pl-2"><b>Description</b></p>
                 </div>
+                </a>
             </template>
         </body>
 

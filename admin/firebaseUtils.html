@@ -31,16 +31,17 @@
     <h1 class="font-bold mb-2">WARNING: THIS PAGE MODIFIES THE DATABASE! DON'T PRESS ANY BUTTONS UNLESS YOU KNOW WHAT
         YOU'RE DOING!</h1>
 
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockData()">Generate
-        Mock Data</button>
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="deleteMockData()">Delete Mock
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockAssignments()">Generate
+        Mock Assignment Data</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="deleteMockAssignments()">Delete Mock Assignment
         Data</button>
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="resetMockData()">Reset Mock
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="resetMockAssignments()">Reset Mock
         Data</button>
     <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="updateDueDates()">Update Due
         Dates</button>
     <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3"
         onclick="addCurrentUserToCollection()">Add Current User to Collection</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockNotifications()">Generate Mock Notification Data</button>
 
     <h1 class="font-bold mt-5 mb-2">Log <button
             class="bg-navbar-hover hover:bg-navbar text-white py-[1.5px] px-[3px] text-xs rounded mx-2"
@@ -56,7 +57,7 @@
 
         const assignmentsRef = db.collection("assignments");
 
-        function generateMockData() {
+        function generateMockAssignments() {
             log("Generate Mock Data")
             assignments.forEach(assignment => {
                 assignmentsRef.add(assignment)
@@ -64,7 +65,7 @@
             })
         }
 
-        function deleteMockData() {
+        function deleteMockAssignments() {
             log("Delete Mock Data")
             assignmentsRef.get().then(assignmentDocs => {
                 assignmentDocs.forEach(assignment => {
@@ -75,7 +76,7 @@
             })
         }
 
-        function resetMockData() {
+        function resetMockAssignments() {
             deleteMockData()
             generateMockData()
         }
@@ -93,6 +94,18 @@
             }).catch(function (error) {
                 log("Error adding new user", JSON.stringify(error));
             });
+        }
+
+        const notificationsRef = db.collection("notifications");
+
+        function generateMockNotifications() {
+            log("Generate Mock Notifications");
+            notifications.forEach(Notification => 
+                notificationsRef.add(Notification)
+                    .then(output => log("Added Notification", output))
+
+            )
+            
         }
     </script>
 </body>

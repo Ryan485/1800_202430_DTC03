@@ -101,67 +101,72 @@ var assignments = [
 
 
 var notifications = [
+
     {
-        notified: '2 days ago',
-        items: [
-            {
-                course: "COMP 1510: Lab 4 - Discussion Post",
-                mainNotifications: "@chrisp23 Mentioned You",
-                estimatedTime: "",
-                new: false,
-            },
-            {
-                course: "COMP 1510",
-                mainNotifications: "Lab 5 - Unit Testing",
-                estimatedTime: "~2 hr",
-                new: true,
-            },
-        ]
+        course: "COMP 1510: Lab 4 - Discussion Post",
+        mainNotifications: "@chrisp23 Mentioned You",
+        estimatedTime: "",
+        date: daysAwayFromToday(-2),
+        assignment: "jWFxSxZ2ei7KtVFAjSTC",
+        new: false,
     },
     {
-        notified: Yesterday,
-        items: [
-            {
-                course: "COMP 1712: Agile - Discussion Post",
-                mainNotifications: "@doug31 Mentioned You",
-                estimatedTime: "",
-                new: false,
-            },
-            {
-                course: "COMP 1537",
-                mainNotifications: "Lab 5 - JavaScript Basics",
-                estimatedTime: "~1 hr 20 mins",
-                new: true,
-            },
-            {
-                course: "COMP 1510: Lab 4 - Discussion Post",
-                mainNotifications: "@melissawo Mentioned You",
-                estimatedTime: "",
-                new: false,
-            },
-        ]
+        course: "COMP 1510",
+        mainNotifications: "Lab 5 - Unit Testing",
+        estimatedTime: "~2 hr",
+        date: daysAwayFromToday(-2),
+        assignment: "xm7OBTLFjudSNbgctNqj",
+        new: true,
+    },
+
+    {
+        course: "COMP 1712: Lab 5 - Discussion Post",
+        mainNotifications: "@doug31 Mentioned You",
+        estimatedTime: "",
+        date: daysAwayFromToday(-2),
+        assignment: "tgCSBVVvJXQhR9L0fsoy",
+        new: false,
     },
     {
-        notified: "today",
-        items: [
-            {
-                course: "COMP 1113: Integers - Discussion Post",
-                mainNotifications: "@johng Mentioned You",
-                estimatedTime: "",
-                new: false,
-            },
-            {
-                course: "COMP 1100: Project 1 - Discussion Post",
-                mainNotifications: "@jerryjoe Mentioned You",
-                estimatedTime: "",
-                new: false,
-            },
-            {
-                course: "Comp 1800",
-                mainNotifications: "Week 3 Quiz - Wireframes",
-                estimatedTime: "~2 hr 45 mins",
-                new: true,
-            },
-        ]
+        course: "COMP 1537",
+        mainNotifications: "Lab 5 - JavaScript Basics",
+        estimatedTime: "~1 hr 20 mins",
+        date: daysAwayFromToday(-2),
+        assignment: "EAz4sEuEiDBZXXdg1iOW",
+        new: true,
     },
+    {
+        course: "COMP 1116: Presentation - Discussion Post",
+        mainNotifications: "@melissawo Mentioned You",
+        estimatedTime: "",
+        date: daysAwayFromToday(-2),
+        assignment: "1PS3fSBDTcCUlEXtuvYF",
+        new: false,
+    },
+
+    {
+        course: "Comp 1510: Data Structures - Discussion Post",
+        mainNotifications: "@johng Mentioned You",
+        estimatedTime: "",
+        date: daysAwayFromToday(-2),
+        assignment: "pPlPKbY8L8jACQXwNbax",
+        new: false,
+    },
+    {
+        course: "COMP 1113: Quiz 5 - Floating Point",
+        mainNotifications: "@jerryjoe Mentioned You",
+        estimatedTime: "",
+        date: daysAwayFromToday(-2),
+        assignment: "zjJ1OlWcMt72Y3fomfpw",
+        new: false,
+    },
+    {
+        course: "Comp 1800",
+        mainNotifications: "Week 3 Quiz - Wireframes",
+        estimatedTime: "~2 hr 45 mins",
+        date: daysAwayFromToday(-2),
+        assignment: "tvqCtmNGyM7cdkUG6rph",
+        new: true,
+    },
+
 ]
