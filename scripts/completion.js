@@ -3,9 +3,14 @@ let docID = new URL(window.location.href).searchParams.get("docID");
 
 // Reference to the Firestore collection
 const assignmentsRef = db.collection("assignments");
-const dropdownButton = document.getElementById('dropdownButton');
-const dropdownMenu = document.getElementById('dropdownMenu');
-const selectedOption = document.getElementById('selectedOption');
+const slider = document.getElementById('slider');
+const progressBar = document.getElementById('progress-bar');
+const percentageDisplay = document.getElementById('percentage');
+
+
+
+// Initialize the progress bar on page load
+initializeProgressBar();
 
 // Fetch the document based on the docID
 assignmentsRef.doc(docID).get()
@@ -33,28 +38,19 @@ assignmentsRef.doc(docID).get()
     });
 
 
-// Toggle dropdown menu visibility
-dropdownButton.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('hidden');
+slider.addEventListener('input', function () {
+    const value = slider.value; // Get slider's value
+    progressBar.style.width = `${value}%`; // Adjust the width of the progress bar
+    percentageDisplay.textContent = value; // Update percentage text
 });
 
-// Handle option selection
-dropdownMenu.addEventListener('click', (event) => {
-    const target = event.target.closest('.priority-option');
-    if (target) {
-        const priority = target.getAttribute('data-priority');
-        selectedOption.textContent = priority; // Update button text
-        dropdownMenu.classList.add('hidden'); // Hide dropdown after selection
-    }
-});
 
-// Close dropdown when clicking outside
-document.addEventListener('click', (event) => {
-    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.classList.add('hidden');
-    }
-});
-
+// Function to initialize progress bar and percentage
+function initializeProgressBar() {
+    const initialValue = slider.value; // Get slider's initial value
+    progressBar.style.width = `${initialValue}%`; // Set progress bar width
+    percentageDisplay.textContent = initialValue; // Set initial percentage text
+}
 
 
 function commentLinkClicked() {
@@ -66,3 +62,6 @@ var header = headerTemplate.content.cloneNode(true)
 header.querySelector('.due-day').innerText = group.dueDay
 header.querySelector('.due-in-days-number').innerText = group.dueInDays
 var header = headerTemplate.content.cloneNode(true)
+
+
+

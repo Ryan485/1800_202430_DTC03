@@ -21,6 +21,8 @@ function getAssignment() {
             $(".assignment-comments-link").attr("href", "comments.html?docID=" + doc.id)
 
             $(".assignment-priority").attr("href", "/priority.html?docID=" + docID)
+            $(".assignment-completion").attr("href", "/completion.html?docID=" + docID)
+            $(".discussion-thread-link").attr("href", "/comments.html?docID=" + docID)
         })
 }
 getAssignment()
