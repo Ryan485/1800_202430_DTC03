@@ -30,3 +30,7 @@ footer {
 .assignment-estimated-time::before {
     content: "~";
 }
+
+.clickable {
+    cursor: pointer;
+}
