@@ -4,31 +4,29 @@ let docID = new URL(window.location.href).searchParams.get("docID");
 // Reference to the Firestore collection
 const assignmentsRef = db.collection("assignments");
 const slider = document.getElementById('slider');
-const progressBar = document.getElementById('progress-bar');
-const percentageDisplay = document.getElementById('percentage');
-
-
+const progressBars = document.querySelectorAll('.progress-bar'); // NodeList for all progress bars
+const percentageDisplays = document.querySelectorAll('.percentage'); // NodeList for all percentage elements
 
 // Initialize the progress bar on page load
-initializeProgressBar();
+initializeProgressBars();
 
 // Fetch the document based on the docID
 assignmentsRef.doc(docID).get()
     .then(doc => {
-        console.log(doc)
         if (doc.exists) {
-            // Extract the course information from the document
-            $(".assignment-course").text(doc.data().course)
-            $(".assignment-estimated-time").text(estimatedTimeString(doc.data().estimatedTimeInMinutes))
-            $(".assignment-name").text(doc.data().name)
+            // Extract and display assignment data
+            $(".assignment-course").text(doc.data().course);
+            $(".assignment-estimated-time").text(estimatedTimeString(doc.data().estimatedTimeInMinutes));
+            $(".assignment-name").text(doc.data().name);
 
-            var dueDate = new Date(doc.data().dueDate)
-            var dueInDays = daysFromToday(dueDate)
-            console.log(dueDate, dueInDays)
+            const dueDate = new Date(doc.data().dueDate);
+            const dueInDays = daysFromToday(dueDate);
 
-            $(".assignment-due-date").text(`${dayOfWeekFromToday(dueInDays)} ${dueDate.toLocaleDateString()} (in ${dueInDays} day${plural(dueInDays)})`)
-            $(".assignment-progress-bar").css("width", doc.data().progress + "%")
-            $(".assignment-progress-percent").text(doc.data().progress)
+            $(".assignment-due-date").text(`${dayOfWeekFromToday(dueInDays)} ${dueDate.toLocaleDateString()} (in ${dueInDays} day${plural(dueInDays)})`);
+
+            // Set the initial progress
+            const progress = doc.data().progress;
+            updateProgressBars(progress);
         } else {
             console.log("No document found with the given docID");
         }
@@ -37,31 +35,29 @@ assignmentsRef.doc(docID).get()
         console.error("Error fetching document:", error);
     });
 
-
+// Update progress bar and percentage elements on slider input
 slider.addEventListener('input', function () {
     const value = slider.value; // Get slider's value
-    progressBar.style.width = `${value}%`; // Adjust the width of the progress bar
-    percentageDisplay.textContent = value; // Update percentage text
+    updateProgressBars(value); // Update all progress bars and percentages
 });
 
-
-// Function to initialize progress bar and percentage
-function initializeProgressBar() {
+// Function to initialize progress bars and percentage elements
+function initializeProgressBars() {
     const initialValue = slider.value; // Get slider's initial value
-    progressBar.style.width = `${initialValue}%`; // Set progress bar width
-    percentageDisplay.textContent = initialValue; // Set initial percentage text
+    updateProgressBars(initialValue); // Update progress bars and percentages on load
 }
 
+// Function to update all progress bars and percentage displays
+function updateProgressBars(value) {
+    progressBars.forEach(bar => {
+        bar.style.width = `${value}%`; // Update the width of each progress bar
+    });
+    percentageDisplays.forEach(display => {
+        display.innerHTML = `<span>${value}</span>% Complete`; // Update the percentage text
+    });
+}
 
+// Navigation function for comment link
 function commentLinkClicked() {
-    window.location.href = "./comments.html?docID=" + docID
+    window.location.href = "./comments.html?docID=" + docID;
 }
-
-var header = headerTemplate.content.cloneNode(true)
-
-header.querySelector('.due-day').innerText = group.dueDay
-header.querySelector('.due-in-days-number').innerText = group.dueInDays
-var header = headerTemplate.content.cloneNode(true)
-
-
-
