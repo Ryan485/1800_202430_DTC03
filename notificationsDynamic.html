@@ -60,13 +60,13 @@
 
             <template id="notificationsCardTemplate">
                 <a class="notifications-link" href="">
-                <div class="bg-[#d9d9d9] border-2 border-black m-5" onclick="notificationClicked()">
-                    <div>
-                        <p class="notifications-course pl-2">Course</p>
-                        <p class="notifications-estimatedTime float-right">Estimated time?</p>
+                    <div class="bg-[#d9d9d9] border-2 border-black m-5" onclick="notificationClicked()">
+                        <div>
+                            <p class="notifications-course pl-2">Course</p>
+                            <p class="notifications-estimatedTime float-right">Estimated time?</p>
+                        </div>
+                        <p class="notifications-mainNotifications text-[25px] pl-2"><b>Description</b></p>
                     </div>
-                    <p class="notifications-mainNotifications text-[25px] pl-2"><b>Description</b></p>
-                </div>
                 </a>
             </template>
         </body>
@@ -81,9 +81,12 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/tailwind.config.js"></script>
+    <script src="./scripts/authentication.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/notifications.js"></script>
-
+    <script>
+        waitForLoggedInUser(getNotifications)
+    </script>
 </body>
 
 </html>

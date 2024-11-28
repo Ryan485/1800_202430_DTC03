@@ -58,3 +58,21 @@ function estimatedTimeString(minutes) {
         }
     }
 }
+
+function waitForLoggedInUser(fn, args = []) {
+    /**
+     * Wait for loggedInUser to be defined before calling functions that depend on it
+     *
+     * @param fn the function that depends on loggedInUser
+     * @param args the arguments to pass to the function in the form of an array
+     */
+    var wait = setInterval(() => {
+        if (!loggedInUser) {
+            console.log(`Waiting for loggedInUser`)
+        } else {
+            console.log(`loggedInUser defined`, loggedInUser)
+            clearInterval(wait)
+            fn.apply(this, args)
+        }
+    }, 1)
+}

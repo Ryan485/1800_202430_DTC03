@@ -108,6 +108,8 @@ var notifications = [
         estimatedTime: "",
         date: daysAwayFromToday(-2),
         assignment: "jWFxSxZ2ei7KtVFAjSTC",
+        to: "all",
+        from: "mockData",
         new: false,
     },
     {
@@ -116,6 +118,8 @@ var notifications = [
         estimatedTime: "~2 hr",
         date: daysAwayFromToday(-2),
         assignment: "xm7OBTLFjudSNbgctNqj",
+        to: "all",
+        from: "mockData",
         new: true,
     },
 
@@ -125,6 +129,8 @@ var notifications = [
         estimatedTime: "",
         date: daysAwayFromToday(-2),
         assignment: "tgCSBVVvJXQhR9L0fsoy",
+        to: "all",
+        from: "mockData",
         new: false,
     },
     {
@@ -133,6 +139,8 @@ var notifications = [
         estimatedTime: "~1 hr 20 mins",
         date: daysAwayFromToday(-2),
         assignment: "EAz4sEuEiDBZXXdg1iOW",
+        to: "all",
+        from: "mockData",
         new: true,
     },
     {
@@ -141,6 +149,8 @@ var notifications = [
         estimatedTime: "",
         date: daysAwayFromToday(-2),
         assignment: "1PS3fSBDTcCUlEXtuvYF",
+        to: "all",
+        from: "mockData",
         new: false,
     },
 
@@ -150,6 +160,8 @@ var notifications = [
         estimatedTime: "",
         date: daysAwayFromToday(-2),
         assignment: "pPlPKbY8L8jACQXwNbax",
+        to: "all",
+        from: "mockData",
         new: false,
     },
     {
@@ -158,6 +170,8 @@ var notifications = [
         estimatedTime: "",
         date: daysAwayFromToday(-2),
         assignment: "zjJ1OlWcMt72Y3fomfpw",
+        to: "all",
+        from: "mockData",
         new: false,
     },
     {
@@ -166,6 +180,8 @@ var notifications = [
         estimatedTime: "~2 hr 45 mins",
         date: daysAwayFromToday(-2),
         assignment: "tvqCtmNGyM7cdkUG6rph",
+        to: "all",
+        from: "mockData",
         new: true,
     },
 
