@@ -87,6 +87,17 @@
 
         function updateDueDates() {
             log("Reset Due Dates")
+            assignmentsRef.get()
+                .then(assignmentDocs => {
+                    assignmentDocs.docs.forEach(assignment => {
+                        const newDueDate = assignments.filter(a => a.name == assignment.data().name)[0].dueDate
+                        assignmentsRef.doc(assignment.id).update({
+                            dueDate: newDueDate
+                        }).then(result => {
+                            log(`Updated due date of ${assignment.id} '${assignment.data().name}' to ${newDueDate}`, result)
+                        })
+                    })
+                })
         }
 
         function addCurrentUserToCollection() {
@@ -97,7 +108,7 @@
                 log("New user added to firestore", JSON.stringify(loggedInUser));
             }).catch(function (error) {
                 log("Error adding new user", JSON.stringify(error));
-            });
+            })
         }
 
         const notificationsRef = db.collection("notifications");
