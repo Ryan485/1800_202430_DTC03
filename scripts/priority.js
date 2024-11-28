@@ -1,68 +1,69 @@
 // Get the docID from the URL
 let docID = new URL(window.location.href).searchParams.get("docID");
 
-// Reference to the Firestore collection
+// Firestore Reference
 const assignmentsRef = db.collection("assignments");
-const dropdownButton = document.getElementById('dropdownButton');
-const dropdownMenu = document.getElementById('dropdownMenu');
-const selectedOption = document.getElementById('selectedOption');
 
-// Fetch the document based on the docID
+// Fetch the assignment document
 assignmentsRef.doc(docID).get()
-    .then(doc => {
-        console.log(doc)
+    .then((doc) => {
         if (doc.exists) {
-            // Extract the course information from the document
-            $(".assignment-course").text(doc.data().course)
-            $(".assignment-estimated-time").text(estimatedTimeString(doc.data().estimatedTimeInMinutes))
-            $(".assignment-name").text(doc.data().name)
+            const data = doc.data();
 
-            var dueDate = new Date(doc.data().dueDate)
-            var dueInDays = daysFromToday(dueDate)
-            console.log(dueDate, dueInDays)
+            // Populate assignment details
+            $(".assignment-course").text(data.course);
+            $(".assignment-estimated-time").text(estimatedTimeString(data.estimatedTimeInMinutes));
+            $(".assignment-name").text(data.name);
 
-            $(".assignment-due-date").text(`${dayOfWeekFromToday(dueInDays)} ${dueDate.toLocaleDateString()} (in ${dueInDays} day${plural(dueInDays)})`)
-            $(".assignment-progress-bar").css("width", doc.data().progress + "%")
-            $(".assignment-progress-percent").text(doc.data().progress)
+            const dueDate = new Date(data.dueDate);
+            const dueInDays = daysFromToday(dueDate);
+            $(".assignment-due-date").text(
+                `${dayOfWeekFromToday(dueInDays)} ${dueDate.toLocaleDateString()} (in ${dueInDays} day${plural(dueInDays)})`
+            );
+
+            // Update Progress Bar and Percentage
+            const progress = data.progress;
+            $(".progress-bar").css("width", `${progress}%`);
+            $(".assignment-progress-percent").text(progress);
         } else {
             console.log("No document found with the given docID");
         }
     })
-    .catch(error => {
+    .catch((error) => {
         console.error("Error fetching document:", error);
     });
 
+// Dropdown Button Functionality
+const dropdownButton = document.getElementById("dropdownButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const selectedOption = document.getElementById("selectedOption");
 
-// Toggle dropdown menu visibility
-dropdownButton.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('hidden');
+dropdownButton.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
 });
 
-// Handle option selection
-dropdownMenu.addEventListener('click', (event) => {
-    const target = event.target.closest('.priority-option');
+dropdownMenu.addEventListener("click", (event) => {
+    const target = event.target.closest(".priority-option");
     if (target) {
-        const priority = target.getAttribute('data-priority');
-        selectedOption.textContent = priority; // Update button text
-        dropdownMenu.classList.add('hidden'); // Hide dropdown after selection
+        const priority = target.getAttribute("data-priority");
+        selectedOption.textContent = priority;
+        dropdownMenu.classList.add("hidden"); // Close dropdown
     }
 });
 
 // Close dropdown when clicking outside
-document.addEventListener('click', (event) => {
+document.addEventListener("click", (event) => {
     if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.classList.add('hidden');
+        dropdownMenu.classList.add("hidden");
     }
 });
 
-
-
+// Comment Navigation
 function commentLinkClicked() {
-    window.location.href = "./comments.html?docID=" + docID
+    window.location.href = "./comments.html?docID=" + docID;
 }
 
-var header = headerTemplate.content.cloneNode(true)
-
-header.querySelector('.due-day').innerText = group.dueDay
-header.querySelector('.due-in-days-number').innerText = group.dueInDays
-var header = headerTemplate.content.cloneNode(true)
+// Example Header Update (Remove if unnecessary)
+var header = headerTemplate.content.cloneNode(true);
+header.querySelector(".due-day").innerText = group.dueDay;
+header.querySelector(".due-in-days-number").innerText = group.dueInDays;

@@ -22,6 +22,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./authentication/firebaseAPI_DTC03.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css" />
@@ -61,12 +62,12 @@
             <p>Due <span class="assignment-due-date">assignment-due-date</span></p>
         </div>
 
-        <div class="bg-progress-not-done">
+        <div class="bg-progress-not-done" style="transition: width 0.3s;">
             <!-- <img width="380" src="dfjksadljfsdfs.png" alt=""> -->
-            <div class="progress-bar h-3 bg-progress-done assignment-progress-bar"></div>
+            <div class="progress-bar h-3 bg-green-500 assignment-progress-bar"></div>
         </div>
 
-        <div class="text-center md:float-start text-[#acacad]">
+        <div class="text-center md:float-start">
             <p><span class="assignment-progress-percent">0</span>% Completed</p>
         </div>
 
