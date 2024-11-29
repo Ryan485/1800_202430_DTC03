@@ -36,7 +36,27 @@
 
     <div class="hidden md:block" id="navbar"></div>
 
-    <main>
+    <main class="container mx-auto mt-3 px-3">
+        <template id="assignmentHeaderTemplate">
+            <p class="due-date-header">Due <span class="due-day">Monday</span> (<span class="due-in-days">in <span
+                        class="due-in-days-number">1</span> day<span class="due-in-days-plural"></span>)</p>
+        </template>
+        <template id="assignmentTemplate">
+            <a class="assignment-link" href="#">
+                <div class="bg-assignment hover:bg-assignment-hover my-2">
+                    <div class="pr-2 pt-[1px]">
+                        <span class="assignment-course bg-blue-500 px-2 py-[2px] mr-2">assignment-course</span>
+                        <span class="assignment-new font-bold italic"></span>
+                        <span class="float-right text-navbar-hover assignment-estimated-time pt-1">1
+                            hr</span>
+                    </div>
+                    <p class="px-2 mt-1.5 text-2xl assignment-name">assignment-name</p>
+                    <div class="w-full h-1 mt-2 bg-progress-not-done">
+                        <div class="h-1 bg-progress-done assignment-progress" style="width:50%"></div>
+                    </div>
+                </div>
+            </a>
+        </template>
 
         <div>
         <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">

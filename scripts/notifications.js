@@ -7,16 +7,9 @@ function displayNotifications(data) {
 
 }
 
-function populateNotificationCards() {
-
-
-}
-
 function notificationClicked() {
     window.location.href = "./notification.html"
 }
-
-populateNotificationCards();
 
 const template = document.querySelector("#notificationsCardTemplate");
 
@@ -25,7 +18,10 @@ const notificationsRef = db.collection("notifications");
 
 function getNotifications() {
 
-    notificationsRef.orderBy("date").get()
+    notificationsRef
+        .orderBy("date", "desc")
+        .where("to", "in", [loggedInUser.uid, "all"])
+        .get()
         .then(notifications => {
             notifications.docs.forEach(doc => {
                 var notification = doc.data()
@@ -49,4 +45,24 @@ function getNotifications() {
             })
         })
 }
-getNotifications()
+
+function addNotification(isComment, to, voteDirection = null) {
+    const message = loggedInUser.displayName + (isComment ? " replied to your comment" : (voteDirection ? " upvoted" : " downvoted") + " your comment")
+    
+    const notification = {
+        course: $(".assignment-course").text().toString(),
+        mainNotifications: message,
+        estimatedTime: "",
+        to: to,
+        from: loggedInUser.uid,
+        date: new Date(),
+        assignment: assignmentID,
+        new: true,
+    }
+    console.log("New notification", notification)
+    notificationsRef.add(notification)
+        .then(output => log("Added Notification", output))
+        .catch(error => {
+            log("Error submitting notification", error)
+        })
+}

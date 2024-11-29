@@ -31,22 +31,26 @@
     <h1 class="font-bold mb-2">WARNING: THIS PAGE MODIFIES THE DATABASE! DON'T PRESS ANY BUTTONS UNLESS YOU KNOW WHAT
         YOU'RE DOING!</h1>
 
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockAssignments()">Generate
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3"
+        onclick="generateMockAssignments()">Generate
         Mock Assignment Data</button>
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="deleteMockAssignments()">Delete Mock Assignment
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="deleteMockAssignments()">Delete
+        Mock Assignment
         Data</button>
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="resetMockAssignments()">Reset Mock
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="resetMockAssignments()">Reset
+        Mock
         Data</button>
     <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="updateDueDates()">Update Due
         Dates</button>
     <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3"
         onclick="addCurrentUserToCollection()">Add Current User to Collection</button>
-    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3" onclick="generateMockNotifications()">Generate Mock Notification Data</button>
+    <button class="bg-navbar-hover hover:bg-navbar text-white p-2 rounded mr-3"
+        onclick="generateMockNotifications()">Generate Mock Notification Data</button>
 
     <h1 class="font-bold mt-5 mb-2">Log <button
             class="bg-navbar-hover hover:bg-navbar text-white py-[1.5px] px-[3px] text-xs rounded mx-2"
             onclick="clearLog()">Clear</button></h1>
-    <div id="log" class="font-mono"></div>
+    <div id="log" class="font-mono whitespace-pre-line"></div>
 
     <script src="/scripts/tailwind.config.js"></script>
     <script src="/scripts/script.js"></script>
@@ -83,6 +87,17 @@
 
         function updateDueDates() {
             log("Reset Due Dates")
+            assignmentsRef.get()
+                .then(assignmentDocs => {
+                    assignmentDocs.docs.forEach(assignment => {
+                        const newDueDate = assignments.filter(a => a.name == assignment.data().name)[0].dueDate
+                        assignmentsRef.doc(assignment.id).update({
+                            dueDate: newDueDate
+                        }).then(result => {
+                            log(`Updated due date of ${assignment.id} '${assignment.data().name}' to ${newDueDate}`, result)
+                        })
+                    })
+                })
         }
 
         function addCurrentUserToCollection() {
@@ -93,19 +108,19 @@
                 log("New user added to firestore", JSON.stringify(loggedInUser));
             }).catch(function (error) {
                 log("Error adding new user", JSON.stringify(error));
-            });
+            })
         }
 
         const notificationsRef = db.collection("notifications");
 
         function generateMockNotifications() {
             log("Generate Mock Notifications");
-            notifications.forEach(Notification => 
+            notifications.forEach(Notification =>
                 notificationsRef.add(Notification)
                     .then(output => log("Added Notification", output))
 
             )
-            
+
         }
     </script>
 </body>

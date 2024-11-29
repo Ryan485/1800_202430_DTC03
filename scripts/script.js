@@ -11,7 +11,7 @@ function loadSkeleton() {
 loadSkeleton()
 
 function restoreLog() {
-    $("#log").html(localStorage.getItem("log"))
+    $("#log").text(localStorage.getItem("log"))
 }
 
 function log(text, json = null) {
@@ -19,12 +19,12 @@ function log(text, json = null) {
     console.log(text, json, time)
 
     if (json) {
-        text += ` <code>${JSON.stringify(json)}</code>`
+        text += ` ${JSON.stringify(json)}`
     }
 
-    var html = `<p>[${time.toLocaleString()} ${window.location.pathname}] ${text}</p>`
-    $("#log").prepend(html)
-    localStorage.setItem("log", html + localStorage.getItem("log"))
+    var logEntry = `[${time.toLocaleString()} ${window.location.pathname}] ${text}`
+    $("#log").text(logEntry + "\n" + $("#log").text())
+    localStorage.setItem("log", logEntry + "\n" + localStorage.getItem("log"))
 }
 
 function clearLog() {
@@ -58,4 +58,22 @@ function estimatedTimeString(minutes) {
             return `${hours} hr${plural(hours)}`
         }
     }
+}
+
+function waitForLoggedInUser(fn, args = []) {
+    /**
+     * Wait for loggedInUser to be defined before calling functions that depend on it
+     *
+     * @param fn the function that depends on loggedInUser
+     * @param args the arguments to pass to the function in the form of an array
+     */
+    var wait = setInterval(() => {
+        if (!loggedInUser) {
+            console.log(`Waiting for loggedInUser`)
+        } else {
+            console.log(`loggedInUser defined`, loggedInUser)
+            clearInterval(wait)
+            fn.apply(this, args)
+        }
+    }, 1)
 }

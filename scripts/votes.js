@@ -14,7 +14,7 @@ function getVotes() {
         })
 }
 
-function submitVote(newVote, commentID, newComment) {
+function submitVote(newVote, commentID, recipientUser, newComment) {
     const upvoteButtonId = "#comment-upvote-" + commentID
     const downvoteButtonId = "#comment-downvote-" + commentID
 
@@ -32,6 +32,8 @@ function submitVote(newVote, commentID, newComment) {
                     $(downvoteButtonId).addClass(DOWNVOTE_COLOR)
                     $("#comment-score-" + commentID).text(parseInt($("#comment-score-" + commentID).text()) - 1)
                 }
+
+                addNotification(false, recipientUser, newVote.isUpvote)
             }
         })
         .catch(error => {
@@ -40,7 +42,7 @@ function submitVote(newVote, commentID, newComment) {
         })
 }
 
-async function vote(isUpvote, commentID, newComment = false) {
+async function vote(isUpvote, commentID, recipientUser, newComment = false) {
     if (!loggedInUser) {
         console.warn("Cannot submit vote: No user signed in")
         return
@@ -95,7 +97,7 @@ async function vote(isUpvote, commentID, newComment = false) {
                     } else {
                         $("#comment-score-" + commentID).text(parseInt($("#comment-score-" + commentID).text()) - 1)
                     }
-                    submitVote(newVote, commentID, newComment)
+                    submitVote(newVote, commentID, recipientUser, newComment)
                 }
             })
             .catch(error => {
@@ -103,6 +105,6 @@ async function vote(isUpvote, commentID, newComment = false) {
                 log("Error deleting vote", error)
             })
     } else {
-        submitVote(newVote, commentID, newComment)
+        submitVote(newVote, commentID, recipientUser, newComment)
     }
 }

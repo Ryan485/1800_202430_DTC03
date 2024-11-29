@@ -17,6 +17,10 @@ async function displayComment(id, comment) {
     var newComment = commentTemplate.content.cloneNode(true)
 
     await usersRef.doc(comment.user).get().then(user => {
+        newComment.querySelector(".comment-reply").onclick = function () { reply(id, user.id) }
+        newComment.querySelector(".comment-upvote").onclick = function () { vote(true, id, user.id) }
+        newComment.querySelector(".comment-downvote").onclick = function () { vote(false, id, user.id) }
+        newComment.querySelector(".comment-user").id = user.id
         newComment.querySelector(".comment-user").innerText = user.data().name
     })
 
@@ -24,16 +28,13 @@ async function displayComment(id, comment) {
     newComment.querySelector(".comment-content").innerText = comment.content
     newComment.querySelector(".comment-timestamp").innerText = comment.timestamp.toDate()
 
-    newComment.querySelector(".comment-reply").onclick = function () { reply(id) }
     newComment.querySelector(".comment-reply-form").id = "comment-reply-form-" + id
     newComment.querySelector(".comment-replies").id = "comment-replies-" + id
     console.log(newComment.querySelector(".comment-replies").id)
 
     newComment.querySelector(".comment-score").id = "comment-score-" + id
     newComment.querySelector(".comment-upvote").id = "comment-upvote-" + id
-    newComment.querySelector(".comment-upvote").onclick = function () { vote(true, id) }
     newComment.querySelector(".comment-downvote").id = "comment-downvote-" + id
-    newComment.querySelector(".comment-downvote").onclick = function () { vote(false, id) }
 
 
     if (comment.replyTo) {
@@ -59,7 +60,7 @@ function getComments() {
 }
 getComments()
 
-function addComment(replyTo = "") {
+function addComment(replyTo = "", recipientUser = "") {
     const statusElementId = function (id) {
         console.log("replyTo:", id)
         if (id) {
@@ -109,7 +110,11 @@ function addComment(replyTo = "") {
             log(`Comment added successfully with ID ${result.id}`, result)
             $("#" + commentTextId).val("")
             log("New comment:", comment)
-            vote(true, result.id, true)
+            vote(true, result.id, recipientUser, true)
+            if (replyTo) {
+                addNotification(true, recipientUser)
+            }
+            
             getComments()
         })
         .catch(error => {
@@ -118,11 +123,11 @@ function addComment(replyTo = "") {
         });
 }
 
-function reply(id) {
-    console.log("Displaying reply form for", id)
+function reply(id, recipientUser) {
+    console.log("Displaying reply form for", id, "replying to user", recipientUser)
     const replyForm = commentForm.cloneNode(true)
     replyForm.querySelector("#comment-textarea").id += "-" + id
     replyForm.querySelector("#comment-status").id += "-" + id
-    replyForm.querySelector(".comment-submit-button").onclick = function () { addComment(id) }
+    replyForm.querySelector(".comment-submit-button").onclick = function () { addComment(id, recipientUser) }
     $("#comment-reply-form-" + id).html(replyForm)
 }
