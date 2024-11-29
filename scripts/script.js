@@ -6,6 +6,7 @@ function sayHello() {
 function loadSkeleton() {
     console.log($('#navbar').load('./components/navbar.html'))
     console.log($('#footer').load('./components/footer.html'))
+    console.log($('#buttons').load('./components/buttons.html'))
 }
 loadSkeleton()
 

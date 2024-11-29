@@ -34,7 +34,7 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <div id="navbar"></div>
+    <div class="hidden md:block" id="navbar"></div>
 
     <main class="container mx-auto mt-3 px-3">
         <template id="assignmentHeaderTemplate">
@@ -58,10 +58,43 @@
             </a>
         </template>
 
-        <div id="assignments"></div>
+        <div>
+        <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">
+            <button class="md:hidden" onclick="history.back()"><img src="../images/back-arrow.png" width="30px" height="30px" alt=""></button>
+            <p class="text-center"><b>Assignments</b></p>
+            <hr>
+        </nav>
+        <hr>
+        </div>
+
+        <div class="container mx-auto mt-3 px-3">
+            <template id="assignmentHeaderTemplate">
+                <p class="due-date-header">Due <span class="due-day">Monday</span> (<span class="due-in-days">in <span
+                            class="due-in-days-number">1</span> day<span class="due-in-days-plural"></span>)</p>
+            </template>
+            <template id="assignmentTemplate">
+                <a class="assignment-link" href="#">
+                    <div class="bg-assignment hover:bg-assignment-hover my-2">
+                        <div class="px-2 pt-2">
+                            <span class="assignment-course">assignment-course</span>
+                            <span class="assignment-new font-bold italic"></span>
+                            <span class="float-right text-navbar-hover assignment-estimated-time">1
+                                hr</span>
+                        </div>
+                        <span class="px-2 text-2xl assignment-name">assignment-name</span>
+                        <div class="w-full h-1 mt-2 bg-progress-not-done">
+                            <div class="h-1 bg-progress-done assignment-progress" style="width:50%"></div>
+                        </div>
+                    </div>
+                </a>
+            </template>
+
+            <div id="assignments"></div>
+        </div>
     </main>
 
-    <div id="footer"></div>
+    <div class="px-4 md:hidden" id="buttons"></div>
+    <div class="hidden md:flex px-36" id="footer"></div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
