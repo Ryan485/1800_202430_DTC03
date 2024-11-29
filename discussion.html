@@ -34,12 +34,18 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <div id="navbar"></div>
+    <div class="hidden md:block" id="navbar"></div>
 
     <main>
-        <nav class="flex justify-center p-1 font-bold border-b-2 border-slate-300" style="font-size: 30px;">
-            <h1>Discussions</h1>
-        </nav>
+        <div>
+            <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">
+                <button class="md:hidden" onclick="history.back()"><img src="../images/back-arrow.png" width="30px"
+                        height="30px" alt=""></button>
+                <p class="text-center"><b>Discussion</b></p>
+                <hr>
+            </nav>
+            <hr>
+        </div>
 
         <template id="discussionTemplate">
             <a class="discussion-thread-link" href="#">
@@ -59,8 +65,8 @@
 
 
     </main>
-
-    <div id="footer"></div>
+    <div class="px-4 md:hidden" id="buttons"></div>
+    <div class="hidden md:flex px-36" id="footer"></div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->

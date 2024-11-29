@@ -34,7 +34,7 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <div id="navbar"></div>
+    <div class="hidden md:block" id="navbar"></div>
 
     <main>
         <!DOCTYPE html>
@@ -49,10 +49,15 @@
 
         <body>
 
-            <nav class="text-center text-[30px]">
-                <p><b>Notifications</b></p>
+        <div>
+            <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">
+                <button class="md:hidden" onclick="history.back()"><img src="../images/back-arrow.png" width="30px"
+                        height="30px" alt=""></button>
+                <p class="text-center"><b>Notifications</b></p>
                 <hr>
             </nav>
+            <hr>
+        </div>
 
             <main id="main">
 
@@ -73,8 +78,8 @@
 
         </html>
     </main>
-
-    <div id="footer"></div>
+    <div class="px-4 md:hidden" id="buttons"></div>
+    <div class="hidden md:flex px-36" id="footer"></div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
