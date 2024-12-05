@@ -34,21 +34,21 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <div class="hidden md:block" id="navbar"></div>
+    <div id="navbar"></div>
 
-    <main>
-        <div class="sticky top-0 bg-[#F5F5F5] pb-2">
+    <main class="container mx-auto mt-3 px-3">
+        <div class="sticky top-0 bg-[#F5F5F5] pb-2 pt-2">
             <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">
                 <button class="md:hidden" onclick="history.back()"><img src="../images/back-arrow.png" width="30px"
                         height="30px" alt=""></button>
-                <p class="text-center"><b>Assignments</b></p>
+                <p class="text-center"><b>Discussions</b></p>
                 <hr>
             </nav>
         </div>
 
         <template id="discussionTemplate">
             <a class="discussion-thread-link" href="#">
-                <div class="flex flex-col w-3/5 mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
+                <div class="flex flex-col mx-auto bg-gray-300 mt-6 hover:bg-gray-400">
                     <div class="flex justify-between ml-2 mr-2">
                         <p class="assignment-course">COMP 1800 - Discussion</p>
                         <p class="assignment-estimated-time">~30 mins</p>
@@ -60,7 +60,7 @@
             </a>
         </template>
 
-        <div id="discussions"></div>
+        <div id="discussions" class="mx-3"></div>
 
 
     </main>

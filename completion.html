@@ -39,9 +39,9 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <div class="hidden md:block" id="navbar"></div>
+    <div id="navbar"></div>
 
-    <main>
+    <main class="container mx-auto mt-3 px-3">
         <div class="sticky top-0 bg-[#F5F5F5] pb-2">
             <nav class="flex justify-between text-[30px] basis-1/2 md:justify-center">
                 <button class="md:hidden" onclick="history.back()"><img src="../images/back-arrow.png" width="30px"
@@ -62,10 +62,12 @@
                 <p class="mb-2 assignment-due-date">Due Tuesday, October 15 (2 days)</p>
             </div>
             <div class="flex w-3/5 bg-gray-200 rounded-full h-1 dark:bg-gray-700 mx-auto">
-                <div class="progress-bar w-full bg-gray-600 h-1 rounded-full" style="width: 45%; transition: width 0.2s;"></div>
+                <div class="progress-bar w-full h-1 rounded-full bg-green-500"
+                    style="width: 45%; transition: width 0.2s;"></div>
             </div>
             <div class="flex w-3/5 mx-auto">
-                <p class="percentage text-gray-600 mt-2 assignment-progress-bar whitespace-nowrap"><span>40</span>% completed</p>
+                <p class="percentage text-gray-600 mt-2 assignment-progress-bar whitespace-nowrap"><span>40</span>%
+                    completed</p>
             </div>
             <div class="bg-gray-300 mt-12 flex w-3/5 mx-auto flex-col h-96 rounded-lg border-2 border-slate-700">
                 <div class="text-center">
@@ -75,18 +77,20 @@
                 <div class="mt-10 mx-auto" style="width: 100%; max-width: 600px;">
                     <div class="" id="progress-bar-container"
                         style="background: #e0e0e0; border-radius: 10px; height: 50px; position: relative;">
-                        <div class="progress-bar flex flex-col bg-gray-100 w-3/4 rounded-2xl w-full" style="background: #4caf50; border-radius: 10px; height: 100%; transition: width 0.1s;"></div>
+                        <div class="progress-bar flex flex-col bg-gray-100 w-3/4 rounded-2xl w-full"
+                            style="background: #4caf50; border-radius: 10px; height: 100%; transition: width 0.1s;">
+                        </div>
                     </div>
                     <input type="range" id="slider" min="0" max="100" value="0" style="width: 100%; margin-top: 10px;">
                     <p class="percentage text-center"><span>50</span>% Complete</p>
                 </div>
-        </div>
-        <a onclick="commentLinkClicked()">
-            <a href="./comments.html"
-                class="flex w-2/4 mx-auto bg-gray-300 mt-20 rounded-lg border-2 border-slate-700 h-20 items-center justify-center">
-                <p class="mx-auto" style="font-size: 25px;">View Comments</p>
+            </div>
+            <a onclick="commentLinkClicked()">
+                <a href="./comments.html"
+                    class="flex w-2/4 mx-auto bg-gray-300 mt-20 rounded-lg border-2 border-slate-700 h-20 items-center justify-center">
+                    <p class="mx-auto" style="font-size: 25px;">View Comments</p>
+                </a>
             </a>
-        </a>
         </div>
 
 
@@ -104,7 +108,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/completion.js"></script>
-    
+
 
 
 </body>
