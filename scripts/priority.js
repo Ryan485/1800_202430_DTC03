@@ -63,6 +63,8 @@ function commentLinkClicked() {
     window.location.href = "./comments.html?docID=" + docID;
 }
 
+$(".discussion-thread-link").attr("href", "/comments.html?docID=" + docID);
+
 // Example Header Update (Remove if unnecessary)
 var header = headerTemplate.content.cloneNode(true);
 header.querySelector(".due-day").innerText = group.dueDay;

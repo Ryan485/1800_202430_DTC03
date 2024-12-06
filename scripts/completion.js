@@ -10,6 +10,8 @@ const percentageDisplays = document.querySelectorAll('.percentage');
 // Initialize the progress bar on page load
 initializeProgressBars();
 
+$(".discussion-thread-link").attr("href", "/comments.html?docID=" + docID);
+
 // Fetch the document based on the docID
 assignmentsRef.doc(docID).get()
     .then(doc => {
